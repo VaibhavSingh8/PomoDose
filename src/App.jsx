@@ -58,13 +58,17 @@ function App() {
                 className={
                   executing.active === "long"
                     ? "text-[#0C0E1B] bg-[#FE6F6B] p-2 rounded-xl mx-auto"
-                    : "p-2 text-white rounded-md bg-orange-500 hover:bg-orange-600 hover:shadow-lg"
+                    : "p-2 text-white rounded-md bg-zinc-500 hover:bg-zinc-600hover:shadow-lg"
                 }
                 callBack={() => setCurrentTimer("long")}
               />
             </li>
           </ul>
-          <Button title="Settings" callBack={SettingsBtn} />
+          <Button
+            title="Settings"
+            className="text-[#0C0E1B] bg-[#FE6F6B] p-2 rounded-xl mx-auto"
+            callBack={SettingsBtn}
+          />
           <div className="flex justify-center items-center">
             <div className="flex items-center justify-center h-60 w-60 rounded-[7.5rem] bg-[#151932] text-[#efefef] text-5xl shadow-lg">
               <TimerCountdown

@@ -52,10 +52,10 @@ const ContextProvider = (props) => {
         setPomodoro(evaluate.work);
         break;
       case "short":
-        setPomodoro(evaluate.short);
+        setPomodoro(evaluate.shortBreak);
         break;
       case "long":
-        setPomodoro(evaluate.long);
+        setPomodoro(evaluate.longBreak);
         break;
       default:
         setPomodoro(0);
