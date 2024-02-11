@@ -1,29 +1,48 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "./Button";
+import { TimerContext } from "../context/ContextProvider";
 
 const SetPomo = () => {
   const [newTimer, setNewTimer] = useState({
     work: 25,
     shortBreak: 5,
     longBreak: 15,
+    active: "work",
   });
 
-  const handleChange = (e) => {
-    const parsedValue = parseInt(e.target.value);
-    if (!isNaN(parsedValue)) {
-      setNewTimer({ ...newTimer, [e.target.name]: parsedValue });
-      // console.log(newTimer, e.target.name, parsedValue);
-    } else {
-      setNewTimer({ ...newTimer, [e.target.name]: "" });
+  const { updateExecute } = useContext(TimerContext);
+
+  const handleChange = (input) => {
+    const { name, value } = input.target;
+    switch (name) {
+      case "work":
+        setNewTimer({
+          ...newTimer,
+          work: parseInt(value),
+        });
+        break;
+      case "shortBreak":
+        setNewTimer({
+          ...newTimer,
+          short: parseInt(value),
+        });
+        break;
+      case "longBreak":
+        setNewTimer({
+          ...newTimer,
+          long: parseInt(value),
+        });
+        break;
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    updateExecute(newTimer);
   };
   return (
-    <div>
-      <form noValidate>
+    <div className="">
+      <form noValidate onSubmit={handleSubmit}>
         <div className="gap-y-6 mx-10 sm:mx-auto flex flex-col sm:flex-row sm:justify-between">
           <input
             className="border border-gray-500"
