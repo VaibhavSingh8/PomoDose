@@ -41,23 +41,23 @@ const SetPomo = () => {
     updateExecute(newTimer);
   };
   return (
-    <div className="">
+    <div className="text-center">
       <form noValidate onSubmit={handleSubmit}>
-        <div className="gap-y-6 mx-10 sm:mx-auto flex flex-col sm:flex-row sm:justify-between">
+        <div className="gap-y-6 sm:mx-auto flex flex-col justify-center items-center sm:flex-row sm:justify-between mt-4">
           <input
-            className="border border-gray-500"
+            className="border border-gray-500 w-1/4 p-4 bg-[#0C0E1B] text-white text-center"
             name="work"
             onChange={handleChange}
             value={newTimer.work}
           />
           <input
-            className="border border-gray-500"
+            className="border border-gray-500 w-1/4 p-4 bg-[#0C0E1B] text-white text-center"
             name="shortBreak"
             onChange={handleChange}
             value={newTimer.shortBreak}
           />
           <input
-            className="border border-gray-500"
+            className="border border-gray-500 w-1/4 p-4 bg-[#0C0E1B] text-white text-center"
             name="longBreak"
             onChange={handleChange}
             value={newTimer.longBreak}

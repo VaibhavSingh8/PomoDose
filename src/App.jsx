@@ -34,7 +34,9 @@ function App() {
               <Button
                 title="Work"
                 className={
-                  executing.active === "work" ? "active-label" : undefined
+                  executing.active === "work"
+                    ? "text-[#0C0E1B] bg-[#FE6F6B] p-2 rounded-xl mx-auto"
+                    : "p-2 text-white rounded-md bg-zinc-500 hover:bg-zinc-600 hover:shadow-lg"
                 }
                 callBack={() => setCurrentTimer("work")}
               />
@@ -43,7 +45,9 @@ function App() {
               <Button
                 title="Short Break"
                 className={
-                  executing.active === "short" ? "active-label" : undefined
+                  executing.active === "short"
+                    ? "text-[#0C0E1B] bg-[#FE6F6B] p-2 rounded-xl mx-auto"
+                    : "p-2 text-white rounded-md bg-zinc-500 hover:bg-zinc-600hover:shadow-lg"
                 }
                 callBack={() => setCurrentTimer("short")}
               />
@@ -52,15 +56,17 @@ function App() {
               <Button
                 title="Long Break"
                 className={
-                  executing.active === "long" ? "active-label" : undefined
+                  executing.active === "long"
+                    ? "text-[#0C0E1B] bg-[#FE6F6B] p-2 rounded-xl mx-auto"
+                    : "p-2 text-white rounded-md bg-orange-500 hover:bg-orange-600 hover:shadow-lg"
                 }
                 callBack={() => setCurrentTimer("long")}
               />
             </li>
           </ul>
           <Button title="Settings" callBack={SettingsBtn} />
-          <div className="timer-container">
-            <div className="time-wrapper">
+          <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center h-60 w-60 rounded-[7.5rem] bg-[#151932] text-[#efefef] text-5xl shadow-lg">
               <TimerCountdown
                 key={pomodoro}
                 timer={pomodoro}
@@ -70,15 +76,23 @@ function App() {
               </TimerCountdown>
             </div>
           </div>
-          <div className="button-wrapper">
+          <div className="flex justify-center items-center p-8">
             <Button
               title="Start"
-              className={!startAnimate ? "active" : undefined}
+              className={
+                !startAnimate
+                  ? "text-[#0C0E1B] bg-[#FE6F6B] p-4 rounded-xl"
+                  : "text-white bg-zinc-500 hover:bg-zinc-600 hover:shadow-lg p-4 rounded-xl mx-auto"
+              }
               callBack={startTimer}
             />
             <Button
               title="Pause"
-              className={startAnimate ? "active" : undefined}
+              className={
+                startAnimate
+                  ? "text-[#0C0E1B] bg-[#FE6F6B] p-4 rounded-xl"
+                  : "text-white bg-zinc-500 hover:bg-zinc-600 hover:shadow-lg p-4 rounded-xl mx-auto"
+              }
               callBack={pauseTimer}
             />
           </div>
