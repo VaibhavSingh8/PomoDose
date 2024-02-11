@@ -14,26 +14,13 @@ const SetPomo = () => {
 
   const handleChange = (input) => {
     const { name, value } = input.target;
-    switch (name) {
-      case "work":
-        setNewTimer({
-          ...newTimer,
-          work: parseInt(value),
-        });
-        break;
-      case "shortBreak":
-        setNewTimer({
-          ...newTimer,
-          short: parseInt(value),
-        });
-        break;
-      case "longBreak":
-        setNewTimer({
-          ...newTimer,
-          long: parseInt(value),
-        });
-        break;
-    }
+    const parsedValue = parseInt(value);
+    const updatedValue = isNaN(parsedValue) ? 0 : parsedValue;
+
+    setNewTimer({
+      ...newTimer,
+      [name]: updatedValue,
+    });
   };
 
   const handleSubmit = (e) => {
